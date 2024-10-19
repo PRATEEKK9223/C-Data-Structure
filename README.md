@@ -2,9 +2,9 @@ This repository has most of the basic operations on data structures using C Prog
 
 Data Structures.
 **************************************************
-Arrays\n
-Linked Lists\n
-Stacks
-Queues
-Trees
+Arrays-
+Linked Lists-
+Stacks-
+Queues-
+Trees-
 Graphs (coming soon)
