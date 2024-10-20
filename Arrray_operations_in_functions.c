@@ -5,6 +5,8 @@ void read(int*, int);
 void display(int*,int);
 void insert(int*,int*,int ,int);
 int delet(int*,int*,int);
+void sort_asending(int*,int);
+void sort_descending(int*,int);
 
 
 void read(int *array ,int size)
@@ -83,6 +85,40 @@ void delet_using_value(int *array,int *size,int ele)
         printf("enter element is not found!!\n");
 }
 
+void sort_asending(int *array,int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        for(int j=i+1;j<size;j++)
+        {
+            if(*(array+i)>*(array+j))
+              {
+                int temp=*(array+i);
+                *(array+i)=*(array+j);
+                *(array+j)=temp;
+              }
+        }
+    }
+    printf("sorted in asscending order successfully\n");
+}
+
+void sort_descending(int *array,int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        for(int j=i+1;j<size;j++)
+        {
+            if(*(array+i)<*(array+j))
+              {
+                int temp=*(array+i);
+                *(array+i)=*(array+j);
+                *(array+j)=temp;
+              }
+        }
+    }
+    printf("sorted in descending order successfully\n");
+}
+
 void main()
 {
     int a[50],choice,size,pos,key;
@@ -90,9 +126,11 @@ void main()
     
     while(1)
     {
-        printf("1.read :: 2.dislay :: 3.insert :: 4.delet :: 5.search :: 6.delet_value ::other key to exit>>>> \n");
+        printf("1.read :: 2.dislay :: 3.insert :: 4.delet :: 5.search :: 6.delet_value :: 7.sort_asending :: 8.sort_desending other key to exit>>>> \n");
         printf("enter your choice\n");
         scanf("%d",&choice);
+
+
         switch(choice)
         {
             case 1:{
@@ -142,7 +180,14 @@ void main()
                 delet_using_value(a,size_ptr,key);
                 break;
             }
-
+            case 7:{
+                sort_asending(a,size);
+                break;
+            }
+            case 8:{
+                sort_descending(a,size);
+                break;
+            }
 
             default :
             exit(0);
