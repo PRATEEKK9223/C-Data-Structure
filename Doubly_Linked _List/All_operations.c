@@ -182,29 +182,6 @@ int get_length()
     return count;
 }
 
-void Revers()
-{
-    if(head==NULL)
-        printf("empty linked list\n");
-    else{
-         DLL *current,*previous,*nextnode;
-        previous=0;
-        current=head;
-        nextnode=head; 
-        while(nextnode!=0)
-        {
-            nextnode=current->rlink;
-            current->llink=nextnode;
-            current->rlink=previous;
-            previous=current;
-            current=nextnode;
-            head=previous; 
-        }
-        printf("revering sucessfully\n");
-    
-    }
-}
-
 
 void main()
 {
