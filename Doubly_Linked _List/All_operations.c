@@ -63,6 +63,7 @@ void insert_At_pos()
 {
     DLL *temp=head;
     int pos,length;
+    length=get_length();
     newnode=getNode();
     printf("enter the position to add\n");
     scanf("%d",&pos);
@@ -97,6 +98,23 @@ void display()
     }
 
 }
+
+int get_length()
+{
+    int count=0;
+    DLL *temp=head;
+    if(head==0)
+        return 0;
+    else{
+        while(temp=NULL)
+        {
+            count++;
+            temp=temp->rlink;
+        }
+    }
+    return count;
+}
+
 
 void main()
 {
