@@ -4,10 +4,13 @@ struct node* getNode();
 void insert_At_Beging();
 void insert_At_End();
 void insert_At_pos();
+void display();
 int get_length();
 void delet_At_Beging();
 void delet_At_end();
 void delet_At_pos();
+void Revers();
+
 
 
 
@@ -182,6 +185,30 @@ int get_length()
     return count;
 }
 
+void Revers()
+{
+    if(head==NULL)
+        printf("empty linked list\n");
+    else{
+         DLL *current,*previous,*nextnode;
+        previous=0;
+        current=head;
+        nextnode=head; 
+        while(nextnode!=0)
+        {
+            nextnode=current->rlink;
+            current->llink=nextnode;
+            current->rlink=previous;
+            previous=current;
+            current=nextnode;
+            head=previous; 
+        }
+        printf("revering sucessfully\n");
+
+    }
+}
+
+
 
 void main()
 {
@@ -221,6 +248,8 @@ void main()
                 printf("number of NODES=%d",length);
                 break;
             }
+            case 9:
+                Revers();
             case 10:
                 exit(0);
             default:
@@ -228,4 +257,3 @@ void main()
         }
     }
 }
-
