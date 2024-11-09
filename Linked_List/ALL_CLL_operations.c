@@ -7,6 +7,7 @@ void delet_At_Beging();
 void delet_At_end();
 void delet_At_pos();
 int get_length();
+void Reverse();
 void display();
 
 struct node{
@@ -154,6 +155,27 @@ struct node{
     }
     return count;
  }
+void Reverse()
+{
+    CLL *previous,*current=tail->next,*nextnode=current->next;
+
+    if(tail==0)
+        printf("empty CLL\n");
+    else if(tail==tail->next)
+        printf("you have only one element\n");
+    else{
+        while(current!=tail)
+        {
+            previous=current;
+            current=nextnode;
+            nextnode=current->next;//current->next;
+            current->next=previous;
+        }
+        nextnode->next=tail;
+        tail=nextnode;    
+
+    }
+}
 
  void display()
  {
@@ -177,7 +199,7 @@ struct node{
     for(;;)
     {
         printf("enter the choice\n");
-        printf("1-insert at beging\n 2-insert at end\n 3-insert at position\n 4-get length\n 5-delet at beging\n 6-delet at end\n 7-delet at position\n 8-display\n");
+        printf("1-insert at beging\n 2-insert at end\n 3-insert at position\n 4-get length\n 5-delet at beging\n 6-delet at end\n 7-delet at position\n 8-Reverse\n 9-display\n 10-exit....\n");
         scanf("%d",&ch);
         switch(ch)
         {
@@ -207,8 +229,15 @@ struct node{
                 delet_At_pos();
                 break;
             case 8:
+                Reverse();
+                break;
+            case 9:
                 display();
                 break;
+            case 10:
+                exit(0);
+            default:
+                printf("invalid choice\n");
 
         }
     }
