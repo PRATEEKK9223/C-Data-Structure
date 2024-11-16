@@ -4,7 +4,7 @@
 #include<ctype.h>
 
 char *stack=NULL;
-int top=-1,size;
+int top=-1,size,ele;
 
 void push(char ele)
 {
@@ -53,7 +53,7 @@ void main()
     printf("enter the size of the stack\n");
     scanf("%d",&size);
     stack=get_stack(size);
-    char infix[10];
+    char infix[100];
     printf("enter the valid infix expression\n");
     scanf("%s",infix);
     push('#');
@@ -67,24 +67,25 @@ void main()
             push('(');
         else if(infix[i]==')')
         {
-            while(infix[i]!='(')
+            while((ele=pop())!='(')
             {
-                printf("%c",pop());stack_priority(stack[top]);
+                printf("%c",ele);//stack_priority(stack[top]);
 
             }
+           
         }
         else
         {
             while(input_priority(infix[i])<=stack_priority(stack[top]))
             {
-                printf("%c",pop());
-            }
-            push(infix[i]);
-            
+                printf("%c",pop()); 
+               
+            } 
+            push(infix[i]);  
         }
         i++;
     }
-    while(top>0)
+    while(top!=0)
         printf("%c",pop());
               
 }
