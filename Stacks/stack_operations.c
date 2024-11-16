@@ -56,7 +56,7 @@ void palidrome()
     if(flag==1)
         printf("ENTERD string %s IS PALINDROME\n",str);
     else
-    printf("enterd string %s is not a palidrome\n",str);
+        printf("enterd string %s is not a palidrome\n",str);
 }
 
 void main()
