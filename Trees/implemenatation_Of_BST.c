@@ -53,5 +53,6 @@ void main()
         scanf("%d",&data);
         root=insert(root,data);
     }
+    printf("the elements of BST in Inorder\n");
     Inorder(root);
 }
